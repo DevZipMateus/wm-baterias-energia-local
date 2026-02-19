@@ -21,11 +21,12 @@ const pillars = [
 
 const AboutSection = () => (
   <section id="sobre" className="relative section-padding overflow-hidden">
-    {/* Background image */}
-    <div className="absolute inset-0">
-      <img src={aboutBg} alt="Estoque de baterias automotivas" className="h-full w-full object-cover" />
-      <div className="absolute inset-0 bg-white/70" />
-    </div>
+    {/* Background parallax */}
+    <div
+      className="absolute inset-0 bg-cover bg-center bg-fixed"
+      style={{ backgroundImage: `url(${aboutBg})` }}
+    />
+    <div className="absolute inset-0 bg-white/70" />
 
     <div className="relative z-10 container mx-auto">
       <div className="text-center mb-12">
