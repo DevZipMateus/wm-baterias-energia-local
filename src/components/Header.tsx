@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Menu, X, Phone } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logoImg from "@/assets/logo-placeholder.png";
 
 const navLinks = [
@@ -15,12 +15,19 @@ const navLinks = [
 const Header = () => {
   const [open, setOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const handleClick = (link: typeof navLinks[0]) => {
     setOpen(false);
-    if (link.route === "/vitrine") return; // handled by Link
+    if (link.route === "/vitrine") return;
+
     if (location.pathname !== "/") {
-      window.location.href = "/" + link.href;
+      navigate("/");
+      // Wait for navigation then scroll
+      setTimeout(() => {
+        const el = document.querySelector(link.href);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 100);
       return;
     }
     const el = document.querySelector(link.href);
