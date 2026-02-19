@@ -1,5 +1,6 @@
 import { Target, Eye, Gem } from "lucide-react";
 import aboutBg from "@/assets/about-bg.jpg";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 const pillars = [
   {
@@ -19,57 +20,63 @@ const pillars = [
   },
 ];
 
-const AboutSection = () => (
-  <section id="sobre" className="relative section-padding overflow-hidden">
-    {/* Background parallax */}
-    <div
-      className="absolute inset-0 bg-cover bg-center bg-fixed"
-      style={{ backgroundImage: `url(${aboutBg})` }}
-    />
-    <div className="absolute inset-0 bg-white/70" />
+const AboutSection = () => {
+  const heading = useScrollReveal();
+  const textBlock = useScrollReveal();
+  const pillarsBlock = useScrollReveal();
 
-    <div className="relative z-10 container mx-auto">
-      <div className="text-center mb-12">
-        <span className="inline-block mb-2 font-heading text-sm font-semibold uppercase tracking-widest text-accent-foreground bg-accent px-3 py-1 rounded">
-          Sobre nós
-        </span>
-        <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground">
-          Conheça a WM Baterias
-        </h2>
-      </div>
+  return (
+    <section id="sobre" className="relative section-padding overflow-hidden">
+      {/* Background parallax */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-fixed"
+        style={{ backgroundImage: `url(${aboutBg})` }}
+      />
+      <div className="absolute inset-0 bg-white/70" />
 
-      <div className="grid md:grid-cols-2 gap-10 items-start mb-16">
-        <div className="rounded-xl bg-white/80 backdrop-blur-sm p-6 md:p-8 shadow-sm font-body text-muted-foreground leading-relaxed space-y-4 text-base">
-          <p>
-            A WM Baterias nasceu de um sonho construído com conhecimento, trabalho duro e coragem para empreender. Seu fundador, Wladimir Maschio, dedicou mais de 8 anos à linha de montagem da fábrica Baterias Real, onde adquiriu experiência técnica e visão de mercado.
-          </p>
-          <p>
-            No dia 10 de março de 2016, em Santa Izabel do Oeste, a WM Baterias abriu suas portas com uma missão clara: oferecer qualidade, segurança e confiança em energia automotiva.
-          </p>
-          <p>
-            Hoje, a empresa é estruturada com <strong className="text-foreground">4 filiais e uma matriz</strong> que funciona como Centro de Distribuição, garantindo eficiência logística e competitividade estratégica.
-          </p>
+      <div className="relative z-10 container mx-auto">
+        <div ref={heading.ref} className={`text-center mb-12 reveal ${heading.isVisible ? "visible" : ""}`}>
+          <span className="inline-block mb-2 font-heading text-sm font-semibold uppercase tracking-widest text-accent-foreground bg-accent px-3 py-1 rounded">
+            Sobre nós
+          </span>
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground">
+            Conheça a WM Baterias
+          </h2>
         </div>
 
-        <div className="grid gap-4">
-          {pillars.map(({ icon: Icon, title, text }) => (
-            <div
-              key={title}
-              className="flex gap-4 p-5 rounded-lg border border-border bg-card/80 backdrop-blur-sm hover:shadow-md transition-shadow"
-            >
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-md gradient-yellow">
-                <Icon className="h-5 w-5 text-accent-foreground" />
+        <div className="grid md:grid-cols-2 gap-10 items-start mb-16">
+          <div ref={textBlock.ref} className={`rounded-xl bg-white/80 backdrop-blur-sm p-6 md:p-8 shadow-sm font-body text-muted-foreground leading-relaxed space-y-4 text-base reveal-left ${textBlock.isVisible ? "visible" : ""}`}>
+            <p>
+              A WM Baterias nasceu de um sonho construído com conhecimento, trabalho duro e coragem para empreender. Seu fundador, Wladimir Maschio, dedicou mais de 8 anos à linha de montagem da fábrica Baterias Real, onde adquiriu experiência técnica e visão de mercado.
+            </p>
+            <p>
+              No dia 10 de março de 2016, em Santa Izabel do Oeste, a WM Baterias abriu suas portas com uma missão clara: oferecer qualidade, segurança e confiança em energia automotiva.
+            </p>
+            <p>
+              Hoje, a empresa é estruturada com <strong className="text-foreground">4 filiais e uma matriz</strong> que funciona como Centro de Distribuição, garantindo eficiência logística e competitividade estratégica.
+            </p>
+          </div>
+
+          <div ref={pillarsBlock.ref} className={`grid gap-4 stagger-children ${pillarsBlock.isVisible ? "visible" : ""}`}>
+            {pillars.map(({ icon: Icon, title, text }) => (
+              <div
+                key={title}
+                className="flex gap-4 p-5 rounded-lg border border-border bg-card/80 backdrop-blur-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+              >
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-md gradient-yellow">
+                  <Icon className="h-5 w-5 text-accent-foreground" />
+                </div>
+                <div>
+                  <h3 className="font-heading text-lg font-semibold text-foreground mb-1">{title}</h3>
+                  <p className="font-body text-sm text-muted-foreground leading-relaxed">{text}</p>
+                </div>
               </div>
-              <div>
-                <h3 className="font-heading text-lg font-semibold text-foreground mb-1">{title}</h3>
-                <p className="font-body text-sm text-muted-foreground leading-relaxed">{text}</p>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default AboutSection;
