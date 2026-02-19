@@ -1,4 +1,5 @@
 import { Target, Eye, Gem } from "lucide-react";
+import aboutBg from "@/assets/about-bg.jpg";
 
 const pillars = [
   {
@@ -19,8 +20,14 @@ const pillars = [
 ];
 
 const AboutSection = () => (
-  <section id="sobre" className="section-padding bg-background">
-    <div className="container mx-auto">
+  <section id="sobre" className="relative section-padding overflow-hidden">
+    {/* Background image */}
+    <div className="absolute inset-0">
+      <img src={aboutBg} alt="Estoque de baterias automotivas" className="h-full w-full object-cover" />
+      <div className="absolute inset-0 bg-white/92" />
+    </div>
+
+    <div className="relative z-10 container mx-auto">
       <div className="text-center mb-12">
         <span className="inline-block mb-2 font-heading text-sm font-semibold uppercase tracking-widest text-accent-foreground bg-accent px-3 py-1 rounded">
           Sobre nós
@@ -47,7 +54,7 @@ const AboutSection = () => (
           {pillars.map(({ icon: Icon, title, text }) => (
             <div
               key={title}
-              className="flex gap-4 p-5 rounded-lg border border-border bg-card hover:shadow-md transition-shadow"
+              className="flex gap-4 p-5 rounded-lg border border-border bg-card/80 backdrop-blur-sm hover:shadow-md transition-shadow"
             >
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-md gradient-yellow">
                 <Icon className="h-5 w-5 text-accent-foreground" />
