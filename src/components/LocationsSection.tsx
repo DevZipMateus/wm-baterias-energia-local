@@ -10,11 +10,12 @@ const locations = [
 
 const LocationsSection = () => (
   <section id="unidades" className="relative section-padding overflow-hidden">
-    {/* Background image */}
-    <div className="absolute inset-0">
-      <img src={locationsBg} alt="Vista aérea da região" className="h-full w-full object-cover" />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/70 to-black/80" />
-    </div>
+    {/* Background parallax */}
+    <div
+      className="absolute inset-0 bg-cover bg-center bg-fixed"
+      style={{ backgroundImage: `url(${locationsBg})` }}
+    />
+    <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/70 to-black/80" />
 
     <div className="relative z-10 container mx-auto">
       <div className="text-center mb-12">

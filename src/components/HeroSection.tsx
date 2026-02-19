@@ -12,11 +12,12 @@ const HeroSection = () => {
       id="inicio"
       className="relative flex min-h-[90vh] items-center justify-center overflow-hidden pt-16"
     >
-      {/* Background */}
-      <div className="absolute inset-0">
-        <img src={heroBg} alt="Bateria automotiva com energia" className="h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
-      </div>
+      {/* Background parallax */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-fixed"
+        style={{ backgroundImage: `url(${heroBg})` }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center md:text-left">
