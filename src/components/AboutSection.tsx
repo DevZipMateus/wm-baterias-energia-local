@@ -24,7 +24,7 @@ const AboutSection = () => (
     {/* Background image */}
     <div className="absolute inset-0">
       <img src={aboutBg} alt="Estoque de baterias automotivas" className="h-full w-full object-cover" />
-      <div className="absolute inset-0 bg-white/92" />
+      <div className="absolute inset-0 bg-white/70" />
     </div>
 
     <div className="relative z-10 container mx-auto">
@@ -38,7 +38,7 @@ const AboutSection = () => (
       </div>
 
       <div className="grid md:grid-cols-2 gap-10 items-start mb-16">
-        <div className="font-body text-muted-foreground leading-relaxed space-y-4 text-base">
+        <div className="rounded-xl bg-white/80 backdrop-blur-sm p-6 md:p-8 shadow-sm font-body text-muted-foreground leading-relaxed space-y-4 text-base">
           <p>
             A WM Baterias nasceu de um sonho construído com conhecimento, trabalho duro e coragem para empreender. Seu fundador, Wladimir Maschio, dedicou mais de 8 anos à linha de montagem da fábrica Baterias Real, onde adquiriu experiência técnica e visão de mercado.
           </p>
