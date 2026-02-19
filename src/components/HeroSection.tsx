@@ -1,11 +1,8 @@
 import { Zap, ChevronRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const HeroSection = () => {
-  const scrollTo = (id: string) => {
-    const el = document.querySelector(id);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
-  };
 
   return (
     <section
@@ -42,12 +39,12 @@ const HeroSection = () => {
               Solicitar orçamento
               <ChevronRight className="h-4 w-4" />
             </a>
-            <button
-              onClick={() => scrollTo("#produtos")}
+            <Link
+              to="/vitrine"
               className="inline-flex items-center justify-center gap-2 rounded-md border border-white/40 bg-white/10 px-8 py-3.5 font-heading text-base font-semibold text-white hover:bg-accent hover:text-accent-foreground hover:border-accent transition-all duration-300"
             >
               Nossos produtos
-            </button>
+            </Link>
           </div>
         </div>
       </div>

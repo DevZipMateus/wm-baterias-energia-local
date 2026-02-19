@@ -1,4 +1,5 @@
-import { Car, Bike, Truck, Tractor, BatteryCharging, Droplets, Wrench, Gauge, ShieldCheck, Package } from "lucide-react";
+import { Car, Bike, Truck, Tractor, BatteryCharging, Droplets, Wrench, Gauge, ShieldCheck, Package, ShoppingBag, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 const products = [
@@ -25,6 +26,7 @@ const ProductsSection = () => {
   const grid = useScrollReveal();
   const servicesHeading = useScrollReveal();
   const servicesGrid = useScrollReveal();
+  const vitrine = useScrollReveal();
   const extras = useScrollReveal();
 
   return (
@@ -69,6 +71,31 @@ const ProductsSection = () => {
               <span className="font-body text-sm text-white/90">{label}</span>
             </div>
           ))}
+        </div>
+
+        {/* Vitrine CTA */}
+        <div ref={vitrine.ref} className={`mt-14 reveal-scale ${vitrine.isVisible ? "visible" : ""}`}>
+          <div className="relative rounded-xl border border-accent/30 bg-accent/5 backdrop-blur-sm p-8 md:p-10 text-center overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-accent/5 via-accent/10 to-accent/5" />
+            <div className="relative z-10">
+              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full gradient-yellow glow-pulse">
+                <ShoppingBag className="h-8 w-8 text-accent-foreground" />
+              </div>
+              <h3 className="font-heading text-2xl md:text-3xl font-bold text-white mb-3">
+                Confira nossa vitrine online
+              </h3>
+              <p className="font-body text-white/60 max-w-lg mx-auto mb-6 leading-relaxed">
+                Navegue por todo o nosso catálogo de produtos com preços, disponibilidade e detalhes técnicos. Encontre a bateria ideal para o seu veículo sem sair de casa.
+              </p>
+              <Link
+                to="/vitrine"
+                className="shine-hover inline-flex items-center justify-center gap-2 rounded-md gradient-yellow px-8 py-3.5 font-heading text-base font-semibold text-accent-foreground hover:opacity-90 transition-opacity"
+              >
+                Acessar vitrine
+                <ArrowRight className="h-5 w-5" />
+              </Link>
+            </div>
+          </div>
         </div>
 
         {/* Extra info */}
