@@ -1,4 +1,5 @@
 import { MapPin, Clock } from "lucide-react";
+import locationsBg from "@/assets/locations-bg.jpg";
 
 const locations = [
   { city: "Santa Izabel do Oeste", type: "Matriz / CD" },
@@ -8,13 +9,19 @@ const locations = [
 ];
 
 const LocationsSection = () => (
-  <section id="unidades" className="section-padding bg-secondary">
-    <div className="container mx-auto">
+  <section id="unidades" className="relative section-padding overflow-hidden">
+    {/* Background image */}
+    <div className="absolute inset-0">
+      <img src={locationsBg} alt="Vista aérea da região" className="h-full w-full object-cover" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/70 to-black/80" />
+    </div>
+
+    <div className="relative z-10 container mx-auto">
       <div className="text-center mb-12">
         <span className="inline-block mb-2 font-heading text-sm font-semibold uppercase tracking-widest text-accent-foreground bg-accent px-3 py-1 rounded">
           Unidades
         </span>
-        <h2 className="font-heading text-3xl md:text-4xl font-bold text-secondary-foreground">
+        <h2 className="font-heading text-3xl md:text-4xl font-bold text-white">
           Estamos perto de você
         </h2>
       </div>
@@ -23,18 +30,18 @@ const LocationsSection = () => (
         {locations.map(({ city, type }) => (
           <div
             key={city}
-            className="flex items-start gap-3 rounded-lg border border-border bg-card p-5 hover:shadow-md transition-shadow"
+            className="flex items-start gap-3 rounded-lg border border-white/15 bg-white/10 backdrop-blur-sm p-5 hover:bg-white/15 transition-colors"
           >
             <MapPin className="h-5 w-5 text-accent shrink-0 mt-0.5" />
             <div>
-              <p className="font-heading text-base font-semibold text-foreground">{city}</p>
-              <p className="font-body text-sm text-muted-foreground">{type}</p>
+              <p className="font-heading text-base font-semibold text-white">{city}</p>
+              <p className="font-body text-sm text-white/60">{type}</p>
             </div>
           </div>
         ))}
       </div>
 
-      <div className="flex items-center justify-center gap-2 text-muted-foreground font-body text-sm">
+      <div className="flex items-center justify-center gap-2 text-white/60 font-body text-sm">
         <Clock className="h-4 w-4" />
         <span>Seg a sex: 07:30–11:30 / 13:30–18:00 · Sáb: 08:00–11:30</span>
       </div>
