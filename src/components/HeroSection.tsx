@@ -31,7 +31,7 @@ const HeroSection = () => {
           </h2>
           <div className="flex flex-col sm:flex-row gap-4 sm:items-center animate-fade-in-up opacity-0" style={{ animationDelay: "0.7s" }}>
             <a
-              href="https://wa.me/5599999999999"
+              href="https://wa.me/5546999761791"
               target="_blank"
               rel="noopener noreferrer"
               className="shine-hover inline-flex items-center justify-center gap-2 rounded-md gradient-yellow px-8 py-3.5 font-heading text-base font-semibold text-accent-foreground hover:opacity-90 transition-opacity glow-pulse"

@@ -27,7 +27,7 @@ const ContactSection = () => {
 
         <div ref={cards.ref} className={`max-w-2xl mx-auto grid gap-4 stagger-children ${cards.isVisible ? "visible" : ""}`}>
           <a
-            href="https://wa.me/5599999999999"
+            href="https://wa.me/5546999761791"
             target="_blank"
             rel="noopener noreferrer"
             className="group flex items-center gap-4 rounded-lg border border-border bg-card/80 backdrop-blur-sm p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
