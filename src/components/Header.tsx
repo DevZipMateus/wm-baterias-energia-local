@@ -37,11 +37,8 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-primary shadow-lg">
       <div className="container mx-auto flex items-center justify-between py-3 px-4">
-        <Link to="/" className="flex items-center gap-2" aria-label="WM Baterias - Início">
-          <img src={logoImg} alt="WM Baterias logo" className="h-10 w-10 rounded" />
-          <span className="font-heading text-xl font-bold text-primary-foreground tracking-wide">
-            WM Baterias
-          </span>
+        <Link to="/" className="flex items-center" aria-label="WM Baterias - Início">
+          <img src={logoImg} alt="WM Baterias logo" className="h-10 w-auto" />
         </Link>
 
         {/* Desktop nav */}
