@@ -1,7 +1,9 @@
+import logoImg from "@/assets/logo-wm.png";
+
 const Footer = () => (
   <footer className="gradient-dark py-10 px-4">
     <div className="container mx-auto text-center">
-      <p className="font-heading text-lg font-bold text-accent mb-2">WM Baterias</p>
+      <img src={logoImg} alt="WM Baterias logo" className="h-16 mx-auto mb-4" />
       <p className="font-body text-sm text-white/50 mb-1">
         CNPJ: 23.740.466/0002-00
       </p>
