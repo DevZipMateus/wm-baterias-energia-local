@@ -66,7 +66,7 @@ const Header = () => {
             )
           )}
           <a
-            href="https://wa.me/5599999999999"
+            href="https://wa.me/5546999761791"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 rounded-md gradient-yellow px-4 py-2 font-heading text-sm font-semibold text-accent-foreground hover:opacity-90 transition-opacity"
@@ -111,7 +111,7 @@ const Header = () => {
           )}
           <div className="px-6 pt-2">
             <a
-              href="https://wa.me/5599999999999"
+              href="https://wa.me/5546999761791"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 rounded-md gradient-yellow px-4 py-2 font-heading text-sm font-semibold text-accent-foreground"
